@@ -1,1 +1,515 @@
-intex.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Hovsepyan | Shopify Developer</title>
+<meta name="description" content="Shopify Developer specializing in luxury eCommerce design, Shopify Liquid, HTML, CSS and JavaScript.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #f8f6f1;
+  --dark: #24231f;
+  --muted: #77736b;
+  --accent: #a88c70;
+  --white: #ffffff;
+  --line: #e8e2d9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1120px, 88%);
+  margin: auto;
+}
+
+header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 13px;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.hero {
+  min-height: 590px;
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+}
+
+.hero-content { max-width: 760px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(48px, 7vw, 82px);
+  margin-bottom: 25px;
+}
+
+h1 span { color: var(--accent); }
+
+.hero p {
+  color: var(--muted);
+  max-width: 550px;
+  font-size: 16px;
+  margin-bottom: 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 27px;
+  background: var(--dark);
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--dark);
+  color: var(--dark);
+  margin-left: 12px;
+}
+
+.btn-outline:hover { color: white; }
+
+section { padding: 95px 0; }
+
+.section-heading {
+  font-size: clamp(34px, 5vw, 48px);
+  margin-bottom: 18px;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 45px;
+}
+
+.about {
+  background: #efebe3;
+}
+
+.about-text {
+  max-width: 760px;
+  font-size: 16px;
+  color: #625e57;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.skill {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 28px;
+  transition: .3s;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.skill h3 {
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.skill p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.projects {
+  background: #efebe3;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.project-card {
+  background: white;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  transition: .5s;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.04);
+}
+
+.image-wrap { overflow: hidden; }
+
+.project-info { padding: 25px; }
+
+.project-info h3 {
+  font-size: 27px;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 17px;
+}
+
+.project-link {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 5px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service {
+  padding: 28px;
+  border-top: 1px solid var(--accent);
+}
+
+.service h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.service p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.contact {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+}
+
+.contact p {
+  color: #c6c0b6;
+  margin: 20px auto 30px;
+  max-width: 500px;
+}
+
+.contact .btn {
+  background: var(--accent);
+}
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer a:hover { color: var(--accent); }
+
+@media(max-width: 750px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .skills-grid, .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid { grid-template-columns: 1fr; }
+
+  .hero { min-height: 500px; }
+
+  section { padding: 70px 0; }
+}
+
+@media(max-width: 480px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .logo { font-size: 20px; }
+
+  .skills-grid, .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-outline {
+    margin: 12px 0 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">Anna H.</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Shopify Developer & eCommerce Designer</div>
+      <h1>Building Digital<br>Experiences with <span>Elegance.</span></h1>
+      <p>
+        I create elegant, modern and functional Shopify
+        storefronts that combine luxury aesthetics with
+        thoughtful user experiences.
+      </p>
+      <a href="#projects" class="btn">Explore My Work</a>
+      <a href="#contact" class="btn btn-outline">Let's Connect</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="eyebrow">A Little About Me</div>
+    <h2 class="section-heading">Design Meets Technology.</h2>
+    <p class="about-text">
+      Hello, I'm Anna, a Shopify Developer with a passion
+      for creating beautiful and user-friendly eCommerce
+      experiences.
+
+      I work with Shopify themes, Custom Liquid, HTML,
+      CSS and JavaScript to customize storefronts and
+      bring creative ideas to life.
+
+      My focus is on clean design, responsive layouts,
+      attention to detail and a seamless shopping experience.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow">My Expertise</div>
+    <h2 class="section-heading">Technical Skills</h2>
+    <p class="section-intro">
+      The tools and technologies I use to build and
+      customize modern eCommerce websites.
+    </p>
+
+    <div class="skills-grid">
+      <div class="skill">
+        <h3>Shopify</h3>
+        <p>Store setup, theme customization and eCommerce development.</p>
+      </div>
+      <div class="skill">
+        <h3>Liquid</h3>
+        <p>Custom Liquid sections, dynamic content and theme editing.</p>
+      </div>
+      <div class="skill">
+        <h3>HTML5</h3>
+        <p>Clean and structured website markup.</p>
+      </div>
+      <div class="skill">
+        <h3>CSS3</h3>
+        <p>Responsive layouts, styling and modern visual design.</p>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <p>Interactive elements and front-end functionality.</p>
+      </div>
+      <div class="skill">
+        <h3>Responsive Design</h3>
+        <p>Layouts optimized for desktop, tablet and mobile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="eyebrow">Selected Work</div>
+    <h2 class="section-heading">My Projects</h2>
+    <p class="section-intro">
+      A selection of my web design and Shopify development work.
+    </p>
+
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="image-wrap">
+          <img class="project-image"
+          src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=1000"
+          alt="Luxury beauty skincare website">
+        </div>
+        <div class="project-info">
+          <h3>Luxury Beauty Store</h3>
+          <p>
+            Shopify portfolio concept featuring an elegant
+            beauty storefront, premium product presentation
+            and customized content sections.
+          </p>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="image-wrap">
+          <img class="project-image"
+          src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000"
+          alt="Beauty cosmetics product website">
+        </div>
+        <div class="project-info">
+          <h3>Cosmetics Website Design</h3>
+          <p>
+            A visual eCommerce concept focused on clean
+            layouts, product presentation and luxury branding.
+          </p>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">What I Can Do</div>
+    <h2 class="section-heading">My Services</h2>
+
+    <div class="services-grid">
+      <div class="service">
+        <h3>Shopify Store Design</h3>
+        <p>Elegant and user-friendly storefront design.</p>
+      </div>
+      <div class="service">
+        <h3>Theme Customization</h3>
+        <p>Customizing existing Shopify themes to match brand identity.</p>
+      </div>
+      <div class="service">
+        <h3>Custom Liquid</h3>
+        <p>Creating custom sections and content with Shopify Liquid.</p>
+      </div>
+      <div class="service">
+        <h3>HTML & CSS</h3>
+        <p>Custom layouts, styling and page improvements.</p>
+      </div>
+      <div class="service">
+        <h3>Responsive Design</h3>
+        <p>Optimizing storefronts for mobile and desktop devices.</p>
+      </div>
+      <div class="service">
+        <h3>Website Improvements</h3>
+        <p>Visual refinements and front-end customization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="section-heading">Let's Build Something Beautiful.</h2>
+    <p>
+      Have a Shopify project or an idea in mind?
+      I would love to hear from you.
+    </p>
+    <a href="mailto:YOUR_EMAIL@example.com" class="btn">
+      Contact Me
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Anna Hovsepyan. All Rights Reserved.
+    <br>
+    <a href="YOUR_LINKEDIN_URL">LinkedIn</a> |
+    <a href="YOUR_UPWORK_URL">Upwork</a> |
+    <a href="YOUR_GITHUB_URL">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
